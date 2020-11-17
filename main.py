@@ -12,7 +12,7 @@ def index():
     response = make_response(render_template("inde.html"))
     if not secret_number:
         new_secret = random.randint(1, 50)
-        response.set_cookie("secret_number", new_secret)
+        response.set_cookie("secret_number", str(new_secret))  # we have to store it as a string!
 
     return response
 
